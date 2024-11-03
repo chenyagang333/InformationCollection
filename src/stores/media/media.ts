@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { AddWindowMedia } from '@/hooks/useWindowMedia';
-import { computed, type Ref } from 'vue';
+import { computed, type ComputedRef, type Ref } from 'vue';
 export enum MediaTypeEnum { Mobile = 'mobile', Pc = 'pc' }
 
 export const useMediaStore = () => defineStore('media', () => {
@@ -24,7 +24,7 @@ export const useMediaStore = () => defineStore('media', () => {
 // 可以改名为 useResponsiveValue 更符合实际用途
 export const useResponsiveValue = <T>(
   configure: (data: Record<MediaTypeEnum, T>) => void
-): Ref<T, T> => {
+): ComputedRef<T> => {
   const data = {} as Record<MediaTypeEnum, T>
   configure(data)
 

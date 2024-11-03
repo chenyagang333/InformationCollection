@@ -169,10 +169,9 @@ const searchInput = ref<string>('');
 const forms = ref<Form[]>([])
 const getFormsHandler = async () => {
   const res = await getForm(0, 0)
-  console.log('res :>> ', res);
-  // if (res.status === 200) {
-  //   forms.value = res.data
-  // }
+  if (res.status === 200) {
+    forms.value = res.data
+  }
 }
 
 const tabPane = ref<string>('myForm');
