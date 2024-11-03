@@ -1,0 +1,67 @@
+// 断点列表
+// $breakOptions: (
+//   'phone': (
+//     320px,
+//     480px,
+//   ),
+//   'pad': (
+//     481px,
+//     768px,
+//   ),
+//   'notebook': (
+//     769px,
+//     1024px,
+//   ),
+//   'desktop': (
+//     1025px,
+//     1200px,
+//   ),
+//   'tv': 1201px,
+// );
+// 混合
+// @mixin respond-to($breakName) {
+//   $breakPoint: map-get($breakOptions, $breakName);
+//   @if type-of($breakPoint) == 'list' {
+//     $min: nth($breakPoint, 1);
+//     $max: nth($breakPoint, 2);
+//     @media (min-width: $min) and (max-width: $max) {
+//       @content;
+//     }
+//   } @else {
+//     @media (min-width: $breakPoint) {
+//       @content;
+//     }
+//   }
+// }
+@mixin mobile {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+@mixin pc {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+// 媒介查询 // 使用模板
+// @include respond-to("phone") {
+//   min-width: 1100px;
+//   // width: 100%;
+// }
+// @include respond-to("pad") {
+//   min-width: 1100px;
+//   // width: 100%;
+// }
+// @include respond-to("notebook") {
+//   min-width: 1100px;
+//   max-width: 2560px;
+// }
+// @include respond-to("desktop") {
+//   min-width: 1100px;
+//   max-width: 2560px;
+// }
+// @include respond-to("tv") {
+//   min-width: 1100px;
+//   max-width: 2560px;
+// }
